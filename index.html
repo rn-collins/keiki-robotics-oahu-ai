@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Getting Your Keiki Into Competitive Robotics · Oʻahu A.I.</title>
+<meta name="description" content="A family first-steps guide to competitive robotics in Hawaiʻi, with Oʻahu A.I., at Hawaiʻi Tech Week 2026.">
+<meta name="theme-color" content="#070d17">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Keiki Robotics">
+<link rel="apple-touch-icon" href="icon-oai-180.png">
+<link rel="icon" type="image/png" href="icon-oai-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --space:#070d17; --space2:#0b1830; --card:rgba(13,26,52,.72); --line:rgba(96,134,206,.30);
+    --cyan:#6fd2ff; --lav:#c9a0ff; --blue:#2aa8ff; --text:#e6e9f2; --soft:#9fb0d0; --ok:#4fd6a0;
+    --display:"Orbitron",-apple-system,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;font-family:var(--mono);color:var(--text);background:var(--space);line-height:1.62;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  #stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+  #stars i{position:absolute;background:#cdd8ff;border-radius:50%;opacity:.5;animation:tw 4s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.2}50%{opacity:.9}}
+  .wrap{position:relative;z-index:1;max-width:740px;margin:0 auto;padding:0 20px 96px}
+  #bar{position:fixed;top:0;left:0;height:2.5px;width:0;background:linear-gradient(90deg,var(--cyan),var(--lav));z-index:99;transition:width .1s linear}
+
+  header{position:relative;z-index:1;padding:56px 20px 34px;max-width:740px;margin:0 auto}
+  .brandline{display:flex;align-items:center;gap:11px;margin:0 0 24px;flex-wrap:wrap}
+  .brandline svg{width:26px;height:26px}
+  .brandline b{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.06em;color:var(--text)}
+  .brandline span{color:var(--soft);font-size:12px}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin:0 0 14px}
+  h1{font-family:var(--display);font-weight:800;font-size:33px;line-height:1.14;letter-spacing:.01em;margin:0 0 16px;
+    background:linear-gradient(135deg,var(--cyan),var(--lav));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:15.5px;color:#c3cde4;max-width:46ch;margin:0}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .tag{font-size:12px;color:#cdd8f2;background:rgba(42,168,255,.12);border:1px solid rgba(111,210,255,.35);padding:6px 12px;border-radius:6px}
+
+  .rev{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+  .rev.in{opacity:1;transform:none}
+
+  .note{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:13.5px;color:var(--soft);margin:22px 0 6px}
+  h2{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:.01em;color:var(--text);margin:44px 0 6px}
+  .lead{color:var(--soft);margin:6px 0;font-size:14.5px}
+  p{margin:12px 0}
+  b{color:#fff;font-weight:600}
+  a{color:var(--cyan)}
+  sup{color:var(--lav);font-weight:600;font-size:.72em}
+
+  .types{display:grid;gap:10px;margin:16px 0}
+  .type{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .type b{font-family:var(--display);font-size:15px;color:var(--cyan);font-weight:700;letter-spacing:.01em}
+  .type span{display:block;color:var(--soft);font-size:14px;margin-top:4px}
+
+  .prog{height:8px;background:rgba(96,134,206,.2);border-radius:999px;overflow:hidden;margin:16px 0 3px}
+  .prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--lav));transition:width .4s cubic-bezier(.2,.8,.2,1)}
+  .pmsg{font-size:13px;color:var(--soft);min-height:18px;margin:0 0 10px}
+  .pmsg.done{color:var(--ok);font-weight:600}
+  ul.checks{list-style:none;padding:0;margin:6px 0}
+  ul.checks li{display:flex;gap:13px;align-items:flex-start;padding:13px 2px;border-bottom:1px solid var(--line);font-size:15px;cursor:pointer;user-select:none}
+  ul.checks li:last-child{border-bottom:0}
+  .box{width:24px;height:24px;border:2px solid var(--cyan);border-radius:7px;flex:0 0 auto;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--space);transition:.2s}
+  li.on .box{background:var(--cyan)}
+  li.on span.tx{color:var(--soft);text-decoration:line-through}
+
+  .myth{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;cursor:pointer}
+  .myth:active{border-color:var(--cyan)}
+  .myth .m{font-weight:600;color:#fff;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .myth .m .tapn{font-size:11px;color:var(--lav);white-space:nowrap;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:3px}
+  .myth .truth{max-height:0;overflow:hidden;transition:max-height .3s ease,margin .3s ease;color:var(--soft);font-size:14.5px;margin:0}
+  .myth.open .truth{max-height:220px;margin-top:10px}
+  .myth.open .tapn{color:var(--ok)}
+
+  .actions{display:flex;gap:10px;margin:26px 0 4px;flex-wrap:wrap}
+  .btn{flex:1 1 150px;text-align:center;text-decoration:none;border-radius:10px;padding:14px;font-family:var(--mono);font-weight:600;font-size:14px;border:1px solid var(--cyan);color:var(--cyan);background:rgba(42,168,255,.08);min-height:48px}
+  .btn.solid{background:linear-gradient(135deg,var(--cyan),var(--lav));color:#0a1226;border:0;font-weight:700}
+  .btn:active{transform:translateY(1px)}
+
+  .install{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0 4px}
+  .install .ttl{font-family:var(--display);font-weight:700;font-size:15px;margin:0 0 10px;color:var(--cyan)}
+  .install .rows{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .install .os{border:1px solid var(--line);border-radius:10px;padding:12px;background:rgba(8,18,38,.5)}
+  .install .os b{display:block;font-size:13px;margin-bottom:3px}
+  .install .os span{font-size:13px;color:var(--soft)}
+  .install .os.hi{border-color:var(--cyan);background:rgba(42,168,255,.12)}
+  @media(max-width:430px){.install .rows{grid-template-columns:1fr}}
+
+  .pitch{margin:42px 0 0;border-radius:18px;padding:26px 22px;position:relative;overflow:hidden;
+    background:linear-gradient(160deg,rgba(42,168,255,.16),rgba(201,160,255,.10)),var(--space2);border:1px solid var(--line)}
+  .pitch h3{font-family:var(--display);font-size:20px;margin:0 0 10px;font-weight:700;color:#fff}
+  .pitch p{color:#c3cde4;font-size:14.5px;margin:9px 0 0}
+  .pitch b,.pitch em{color:#fff;font-style:normal;font-weight:600}
+  .pitch p a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+  .pitch .contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .pitch .contact a{flex:1 1 190px;text-align:center;text-decoration:none;color:#0a1226;background:linear-gradient(135deg,var(--cyan),var(--lav));border-radius:10px;padding:13px 14px;font-weight:700;font-size:13.5px;min-height:46px;display:flex;align-items:center;justify-content:center}
+  .pitch .sig{margin-top:16px;font-size:12px;color:var(--soft)}
+
+  .refs{font-size:13px;color:var(--soft);margin-top:16px;padding-left:20px}
+  .refs li{margin:14px 0;word-break:break-word}
+  .refs a{color:var(--cyan);font-weight:600;text-decoration:none;font-size:14px}
+  .refs a:active{text-decoration:underline}
+  .refs .src{display:inline-block;font-size:10px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;color:var(--lav);background:rgba(201,160,255,.12);border:1px solid rgba(201,160,255,.3);border-radius:5px;padding:2px 7px;margin-left:6px;vertical-align:middle}
+  .refs .ann{display:block;color:var(--soft);margin-top:4px;font-size:12.5px;line-height:1.55}
+  .refs .compiled{margin-top:18px;font-size:12px;color:var(--soft);font-style:italic}
+  footer{font-size:12px;color:var(--soft);margin-top:20px;line-height:1.5}
+
+  @media (max-width:430px){ h1{font-size:27px} }
+  @media print{#bar,#stars,.actions{display:none} body{background:#fff;color:#111} .rev{opacity:1;transform:none}
+    h1{color:#0a3d6d !important;-webkit-text-fill-color:#0a3d6d} .myth .truth{max-height:none !important;margin-top:10px !important}
+    .note,.type,.myth,.pitch,.install{background:#f3f5fb !important;color:#111}}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+<div id="bar"></div>
+
+<header>
+  <div class="brandline">
+    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="11" y="15" width="18" height="15" rx="3" stroke="#6fd2ff" stroke-width="2.4"/><line x1="20" y1="15" x2="20" y2="9" stroke="#c9a0ff" stroke-width="2.4"/><circle cx="20" cy="8" r="2.4" fill="#c9a0ff"/><circle cx="16" cy="22" r="2" fill="#2aa8ff"/><circle cx="24" cy="22" r="2" fill="#2aa8ff"/></svg>
+    <b>OʻAHU A.I.</b><span>· Hawaiʻi Tech Week 2026</span>
+  </div>
+  <p class="kicker">Meet Hawaiʻi's Championship Robotics Teams</p>
+  <h1>Getting your keiki into competitive robotics.</h1>
+  <p class="sub">A plain, friendly first-steps guide for families. You don't have to leave these islands to build something the world competes with.</p>
+  <div class="tags"><span class="tag">For families</span><span class="tag">Made with Oʻahu A.I.</span></div>
+</header>
+
+<div class="wrap">
+
+  <div class="note rev">A keepsake for families. Programs and costs change season to season, so confirm current details with a local team or coach (like the folks at today's showcase).</div>
+
+  <h2 class="rev">What “competitive robotics” means</h2>
+  <p class="rev">Kids design, build, and program a robot, then take it to tournaments to complete challenges and go head-to-head with other teams. It teaches the real stuff: problem-solving, teamwork, coding, and showing up under pressure. And it's fun. The biggest program in Hawaiʻi schools is <b>VEX</b>, which runs by age:</p>
+  <div class="types rev">
+    <div class="type"><b>VEX IQ (VIQRC)</b><span>Elementary and middle school. Snap-together plastic parts, no tools or soldering.<sup>1,5</sup></span></div>
+    <div class="type"><b>VEX V5 (V5RC)</b><span>Middle and high school. Metal parts and more advanced building and programming.<sup>2,6</sup></span></div>
+  </div>
+  <p class="rev">Each year brings a new game, a build season, and local tournaments that feed toward the <b>VEX Robotics World Championship</b>.<sup>4</sup> In 2025, more than 2,400 teams from over 60 countries competed there.<sup>3</sup></p>
+
+  <h2 class="rev">How to start</h2>
+  <div class="rev">
+    <div class="prog"><i id="pfill"></i></div>
+    <p class="pmsg" id="pmsg">Tap each step as you go.</p>
+    <ul class="checks">
+      <li><span class="box">✓</span><span class="tx"><b>Find a team.</b> Ask your keiki's school if it has a VEX team.</span></li>
+      <li><span class="box">✓</span><span class="tx"><b>No team nearby? Try a club.</b> Island Robotics in Waipahu runs VEX across elementary, middle, and high school.<sup>7</sup></span></li>
+      <li><span class="box">✓</span><span class="tx"><b>Start with VEX IQ if they're young.</b> No soldering, no scary tools, lots of early wins.<sup>1,5</sup></span></li>
+      <li><span class="box">✓</span><span class="tx"><b>Watch a tournament first.</b> Hawaiʻi libraries and schools host robotics events and demos.<sup>10</sup></span></li>
+      <li><span class="box">✓</span><span class="tx"><b>Let them build badly at first.</b> Every championship team started with a robot that didn't work.</span></li>
+    </ul>
+  </div>
+
+  <h2 class="rev">What it costs (roughly)</h2>
+  <p class="rev">Costs vary a lot by team and level. A school team may fold everything into a small program fee. A club charges dues. A VEX IQ kit is the low end and V5 is pricier. Cost is rarely the real barrier: Island Robotics runs its programs at a nominal cost, and Friends of Island Robotics provides equipment and financial support so students who wouldn't otherwise have access can take part.<sup>7,8</sup> <b>Ask directly.</b></p>
+
+  <h2 class="rev">What families often get wrong</h2>
+  <p class="lead rev">Tap each one to flip it.</p>
+  <div class="myth rev"><div class="m"><span>“My kid has to be a coding genius first.”</span><span class="tapn">Tap</span></div><div class="truth">No. Most kids learn to code because of robotics, not before it.</div></div>
+  <div class="myth rev"><div class="m"><span>“We need our own expensive robot.”</span><span class="tapn">Tap</span></div><div class="truth">No. Teams share kits and space. That's the norm.<sup>7</sup></div></div>
+  <div class="myth rev"><div class="m"><span>“It's only for high schoolers.”</span><span class="tapn">Tap</span></div><div class="truth">No. VEX IQ starts in elementary school.<sup>1</sup></div></div>
+  <div class="myth rev"><div class="m"><span>“You have to win to get anything out of it.”</span><span class="tapn">Tap</span></div><div class="truth">No. The skills and the friendships come from the build, not the trophy.</div></div>
+
+  <h2 class="rev">Where to look on Oʻahu</h2>
+  <div class="actions rev">
+    <a class="btn solid" href="https://www.friendsofislandrobotics.org/" target="_blank" rel="noopener noreferrer">Island Robotics (VEX, all levels)</a>
+    <a class="btn" href="https://oahu.ai/" target="_blank" rel="noopener noreferrer">Oʻahu A.I. events</a>
+  </div>
+  <p class="lead rev">Also ask a STEM or science teacher at your local public school, and check your public library for VEX IQ demos.<sup>10</sup></p>
+
+  <h2 class="rev">A little local inspiration</h2>
+  <p class="rev">Coach Jared Haiola of Haleʻiwa Elementary, a 2023 Hawaiʻi State Teacher of the Year finalist,<sup>9</sup> coaches the school's “Cane Fires” VEX IQ team and has taken students to the VEX IQ World Championship.<sup>10</sup> Oʻahu A.I. credits him with guiding dozens of Haleʻiwa students to Worlds over the past decade.<sup>11</sup> Everyone starts with a robot that doesn't work yet. Yours can too.</p>
+
+  <div class="actions rev">
+    <a class="btn solid" href="#" onclick="window.print();return false;">Download PDF</a>
+    <a class="btn" href="#" id="share">Share</a>
+  </div>
+
+  <div class="install rev">
+    <p class="ttl">Keep it on your phone, like an app</p>
+    <div class="rows">
+      <div class="os" id="os-ios"><b>iPhone / iPad · Safari</b><span>Tap the <b>Share</b> icon, then <b>Add to Home Screen</b>.</span></div>
+      <div class="os" id="os-and"><b>Android · Chrome</b><span>Tap the <b>⋮</b> menu, then <b>Add to Home screen</b> (or <b>Install app</b>).</span></div>
+    </div>
+  </div>
+
+  <div class="pitch rev">
+    <h3>Liked this take-home?</h3>
+    <p>This was researched, written, and designed by <a href="https://rn-portfolio-khaki.vercel.app" target="_blank" rel="noopener noreferrer"><b>RN Collins</b></a>, a creator-analyst who turns technical work into things people actually keep and use: explainers, briefs, interactive resources, and small tools, tailored to your brand and your community.</p>
+    <p>If you'd like one built around <em>your</em> work, I'd love to talk.</p>
+    <div class="contact">
+      <a href="https://www.linkedin.com/in/rn-collins">Connect on LinkedIn</a>
+      <a href="mailto:collins.ra@northeastern.edu">Email directly</a>
+    </div>
+    <p class="sig">Made for Oʻahu A.I. · Hawaiʻi Tech Week 2026 · RN Collins</p>
+  </div>
+
+  <h2 class="rev">Resources</h2>
+  <p class="lead rev">Every fact on this page is sourced. Tap any title to open the original in a new tab. Details verified July 2026.</p>
+  <ol class="refs rev">
+    <li id="r1"><a href="https://www.vexrobotics.com/iq" target="_blank" rel="noopener noreferrer">VEX Robotics — VEX IQ (VIQRC)</a> <span class="src">Official · VEX</span><span class="ann">The maker's page for the elementary/middle-school program. Source for the age bands and the snap-together, no-tools construction system.</span></li>
+    <li id="r2"><a href="https://v5rc-kb.recf.org/hc/en-us/articles/9653585786135-Event-Formats-and-Classifications" target="_blank" rel="noopener noreferrer">REC Foundation — Event Formats and Classifications (V5RC)</a> <span class="src">Official · REC Foundation</span><span class="ann">The governing body's rules. Confirms VEX V5 (formerly VRC) serves middle and high school.</span></li>
+    <li id="r3"><a href="https://www.prnewswire.com/news-releases/more-than-2-400-robotics-teams-from-around-the-globe-to-compete-at-the-vex-robotics-world-championship-presented-by-the-robotics-education--competition-foundation-recf-302445627.html" target="_blank" rel="noopener noreferrer">RECF — 2,400+ teams at the 2025 VEX World Championship</a> <span class="src">News · RECF release</span><span class="ann">The official 2025 figure behind “more than 2,400 teams from over 60 countries.”</span></li>
+    <li id="r4"><a href="https://www.vexrobotics.com/competition" target="_blank" rel="noopener noreferrer">VEX Robotics — Competition overview</a> <span class="src">Official · VEX</span><span class="ann">Explains the yearly game, the build season, and the local-to-Worlds pathway.</span></li>
+    <li id="r5"><a href="https://kb.vex.com/hc/en-us/articles/360035592872-Understanding-the-VEX-IQ-Plastic-Construction-System" target="_blank" rel="noopener noreferrer">VEX Library — VEX IQ plastic construction system</a> <span class="src">Official · VEX</span><span class="ann">Confirms VEX IQ is a toolless, snap-together plastic system (no soldering), which is why it's the friendly entry point.</span></li>
+    <li id="r6"><a href="https://kb.vex.com/hc/en-us/articles/360046701172-Building-with-VEX-V5" target="_blank" rel="noopener noreferrer">VEX Library — Building with VEX V5</a> <span class="src">Official · VEX</span><span class="ann">Confirms V5 uses a metal, bolt-together system and more advanced building and programming.</span></li>
+    <li id="r7"><a href="https://www.friendsofislandrobotics.org/about" target="_blank" rel="noopener noreferrer">Friends of Island Robotics — About</a> <span class="src">Nonprofit · local</span><span class="ann">The Waipahu club's own story. Source for coach Mitchell “Mitz” Picardal, VEX across all levels, the 2024 nonprofit, and the equipment/financial support that keeps cost from being a barrier.</span></li>
+    <li id="r8"><a href="https://www.staradvertiser.com/2023/02/26/features/island-robotics-youth-club-will-send-3-teams-to-world-championships/" target="_blank" rel="noopener noreferrer">Honolulu Star-Advertiser — Island Robotics sends 3 teams to Worlds (2023)</a> <span class="src">News · Star-Advertiser</span><span class="ann">Independent confirmation that the club advances teams to the world championships and keeps costs nominal.</span></li>
+    <li id="r9"><a href="https://www.staradvertiser.com/2022/08/15/hawaii-news/2023-hawaii-teacher-of-the-year-award-finalists-named/" target="_blank" rel="noopener noreferrer">Honolulu Star-Advertiser — 2023 Teacher of the Year finalists</a> <span class="src">News · Star-Advertiser</span><span class="ann">Confirms Jared Haiola as a 2023 Hawaiʻi State Teacher of the Year finalist.</span></li>
+    <li id="r10"><a href="https://www.librarieshawaii.org/event/haleiwa-cane-fires-robotics-team/" target="_blank" rel="noopener noreferrer">Hawaiʻi State Public Library System — Haleʻiwa Cane Fires Robotics Team</a> <span class="src">Government · Hawaiʻi</span><span class="ann">Confirms Coach Haiola, the “Cane Fires” VEX IQ team, and that Hawaiʻi libraries host robotics events.</span></li>
+    <li id="r11"><a href="https://luma.com/evbcep88" target="_blank" rel="noopener noreferrer">Oʻahu A.I. — Meet Hawaii's Championship Robotics Teams</a> <span class="src">Host org</span><span class="ann">The event this page was made for. Source for the “dozens to Worlds over a decade” line, which is Oʻahu A.I.'s own framing.</span></li>
+    <li id="r12"><a href="https://oahu.ai/" target="_blank" rel="noopener noreferrer">Oʻahu A.I.</a> <span class="src">Host org</span><span class="ann">The community behind the showcase, connecting local builders, students, and families.</span></li>
+    <li id="r13"><a href="https://hawaiitechweek.com/" target="_blank" rel="noopener noreferrer">Hawaiʻi Tech Week 2026</a> <span class="src">Event</span><span class="ann">The week this showcase is part of.</span></li>
+  </ol>
+
+  <footer>A free family handout for Hawaiʻi Tech Week 2026, with Oʻahu A.I. and Island Robotics. Not affiliated with VEX or the REC Foundation.</footer>
+</div>
+
+<script>
+  // starfield
+  (function(){var s=document.getElementById('stars'),n=window.innerWidth<500?45:75,h='';for(var i=0;i<n;i++){var sz=(Math.random()*2+0.6).toFixed(1),x=(Math.random()*100).toFixed(2),y=(Math.random()*100).toFixed(2),d=(Math.random()*4).toFixed(2);h+='<i style="width:'+sz+'px;height:'+sz+'px;left:'+x+'%;top:'+y+'%;animation-delay:'+d+'s"></i>';}s.innerHTML=h;})();
+  var bar=document.getElementById('bar');
+  addEventListener('scroll',function(){var h=document.documentElement,max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';},{passive:true});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.14});
+  document.querySelectorAll('.rev').forEach(function(el){io.observe(el);});
+  document.querySelectorAll('.myth').forEach(function(m){m.addEventListener('click',function(){m.classList.toggle('open');});});
+  var items=[].slice.call(document.querySelectorAll('ul.checks li')),fill=document.getElementById('pfill'),msg=document.getElementById('pmsg'),
+      lines=['Tap each step as you go.','Nice start.','Keep going.','Almost there.','One more.','You’re set. Go build something.'];
+  items.forEach(function(li){li.addEventListener('click',function(){li.classList.toggle('on');var n=document.querySelectorAll('ul.checks li.on').length;fill.style.width=(n/items.length*100)+'%';msg.textContent=lines[n];msg.classList.toggle('done',n===items.length);});});
+  document.getElementById('share').addEventListener('click',function(ev){ev.preventDefault();if(navigator.share){navigator.share({title:'Getting Your Keiki Into Competitive Robotics in Hawaiʻi',url:location.href});}else{navigator.clipboard.writeText(location.href);this.textContent='Link copied ✓';}});
+  (function(){var ua=navigator.userAgent||'';var isIOS=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);var isAnd=/Android/.test(ua);if(isIOS){document.getElementById('os-ios').classList.add('hi');}else if(isAnd){document.getElementById('os-and').classList.add('hi');}})();
+</script>
+</body>
+</html>

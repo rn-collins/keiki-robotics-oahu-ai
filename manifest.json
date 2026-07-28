@@ -1,0 +1,13 @@
+{
+  "name": "Getting Your Keiki Into Competitive Robotics in Hawaiʻi",
+  "short_name": "Keiki Robotics",
+  "description": "A family first-steps guide to competitive robotics in Hawaiʻi, with Oʻahu A.I., at Hawaiʻi Tech Week 2026.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070d17",
+  "theme_color": "#070d17",
+  "icons": [
+    { "src": "icon-oai-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-oai-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
